@@ -1,0 +1,41 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml:16:1-23:12
+INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml:16:1-23:12
+INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml:16:1-23:12
+INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml:16:1-23:12
+INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml:16:1-23:12
+INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml:16:1-23:12
+INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml:16:1-23:12
+	package
+		ADDED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml:17:5-51
+		INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml
+		INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml
+	android:versionName
+		ADDED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml:19:5-30
+		INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml
+		INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml:16:11-69
+	android:versionCode
+		ADDED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml:18:5-28
+		INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml
+		INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml
+uses-permission#com.android.vending.CHECK_LICENSE
+ADDED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml:22:5-73
+	android:name
+		ADDED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml:22:22-70
+uses-sdk
+INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml
+INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml
+INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml
+INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml
+		ADDED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml
+		INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml
+		ADDED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml
+		INJECTED from /home/jens/Code/2020/StackAttack/licensingLib/AndroidManifest.xml

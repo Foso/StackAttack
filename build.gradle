@@ -1,0 +1,36 @@
+
+buildscript {
+
+    apply from: './buildConstants.gradle'
+
+    ext.buildMaven = { p -> repositories { maven { url p } } }
+
+    repositories {
+        mavenLocal()
+        google()
+        jcenter()
+        mavenCentral()
+        mavenRepos.each { buildMaven(it) }
+    }
+    dependencies {
+
+        classpath 'com.android.tools.build:gradle:3.5.3'
+       
+    }
+}
+
+allprojects {
+    ext.buildMaven = { p -> repositories { maven { url p } } }
+
+    repositories {
+        google()
+        mavenCentral()
+
+        mavenRepos.each { buildMaven(it) }
+        jcenter()
+    }
+
+}
+
+
+
