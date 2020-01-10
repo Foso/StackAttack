@@ -1,16 +1,13 @@
 
 buildscript {
 
-    apply from: './buildConstants.gradle'
 
-    ext.buildMaven = { p -> repositories { maven { url p } } }
 
     repositories {
         mavenLocal()
         google()
         jcenter()
         mavenCentral()
-        mavenRepos.each { buildMaven(it) }
     }
     dependencies {
 
@@ -20,13 +17,11 @@ buildscript {
 }
 
 allprojects {
-    ext.buildMaven = { p -> repositories { maven { url p } } }
 
     repositories {
         google()
         mavenCentral()
 
-        mavenRepos.each { buildMaven(it) }
         jcenter()
     }
 

@@ -2,7 +2,12 @@
 /build/
 /bin/
 target/
- 
+StackAttack_Free/build
+StackAttack_Paid/build
+StackAttackLibrary/build
+licensingLib/build
+.idea
+.gradle
 # OS Files #
 .DS_Store
  

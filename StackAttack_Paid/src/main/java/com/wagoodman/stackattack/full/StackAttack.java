@@ -28,18 +28,18 @@ public class StackAttack extends StackAttackBase
 	// LIBRARY VAR HOOKS
 	public final Boolean isPaid = true;
 	public final int mFreeVersionMaxPoints = -1;
-	
+
 	@Override
 	public Boolean getIsPaid() { return isPaid; }
-	
+
 	@Override
 	public int getFreeVersionMaxPoints() { return mFreeVersionMaxPoints; }
 
-	
+
 	// LICENSING
 
 	public AlertDialog unlicensedDialog;
-	
+
 	static boolean licensed = true;
 	static boolean didCheck = false;
 	static boolean checkingLicense = false;
@@ -60,153 +60,153 @@ public class StackAttack extends StackAttackBase
 	private static final byte[] SALT = new byte[] {42,84,72,-67,-89,-87,-89,-13,37,47,-92,-13,37,39,30,-55,32,32,-37,92,-43,30,-93,33,-32,-37,-99,-16,19,87,42};
 
 	private void displayResult(final String result) {
-	    mHandler.post(new Runnable() {
-	        public void run() {
-	            setProgressBarIndeterminateVisibility(false);
-	        }
-	    });
+		mHandler.post(new Runnable() {
+			public void run() {
+				setProgressBarIndeterminateVisibility(false);
+			}
+		});
 	}
 
 	protected void doCheck() {
 
-	    didCheck = false;
-	    checkingLicense = true;
-	    setProgressBarIndeterminateVisibility(true);
+		didCheck = false;
+		checkingLicense = true;
+		setProgressBarIndeterminateVisibility(true);
 
-	    mChecker.checkAccess(mLicenseCheckerCallback);
+		mChecker.checkAccess(mLicenseCheckerCallback);
 	}
 
 	protected void checkLicense() {
 
-	    mHandler = new Handler();
+		mHandler = new Handler();
 
-	    // Try to use more data here. ANDROID_ID is a single point of attack.
-	    String deviceId = Settings.Secure.getString(getContentResolver(),
-	            Settings.Secure.ANDROID_ID);
+		// Try to use more data here. ANDROID_ID is a single point of attack.
+		String deviceId = Settings.Secure.getString(getContentResolver(),
+				Settings.Secure.ANDROID_ID);
 
-	    // Library calls this when it's done.
-	    mLicenseCheckerCallback = new MyLicenseCheckerCallback();
-	    
-	    // Construct the LicenseChecker with a policy.
-	    mChecker = new LicenseChecker(this, new ServerManagedPolicy(this,
-	            new AESObfuscator(SALT, getPackageName(), deviceId)),
-	            BASE64_PUBLIC_KEY);
+		// Library calls this when it's done.
+		mLicenseCheckerCallback = new MyLicenseCheckerCallback();
 
-	    //doCheck();
+		// Construct the LicenseChecker with a policy.
+		mChecker = new LicenseChecker(this, new ServerManagedPolicy(this,
+				new AESObfuscator(SALT, getPackageName(), deviceId)),
+				BASE64_PUBLIC_KEY);
+
+		doCheck();
 	}
 
 	protected class MyLicenseCheckerCallback implements LicenseCheckerCallback {
 
-	    public void allow() {
-	        //Log.e("LICENSE", "Allow");
-	        if (isFinishing()) {
-	            // Don't update UI if Activity is finishing.
-	            return;
-	        }
-	        
-	        // Should allow user access.
-	        licensed = true;
-	        checkingLicense = false;
-	        didCheck = true;
+		public void allow() {
+			//Log.e("LICENSE", "Allow");
+			if (isFinishing()) {
+				// Don't update UI if Activity is finishing.
+				return;
+			}
 
-	    }
+			// Should allow user access.
+			licensed = true;
+			checkingLicense = false;
+			didCheck = true;
 
-	    public void dontAllow() {
-	        //Log.e("LICENSE", "DONT ALLOW!!!");
-	        if (isFinishing()) {
-	            // Don't update UI if Activity is finishing.
-	            return;
-	        }
-	        
-	        licensed = false;
-	        checkingLicense = false;
-	        didCheck = true;
-	        
-	        // Should not allow access. In most cases, the app should assume
-	        // the user has access unless it encounters this. If it does,
-	        // the app should inform the user of their unlicensed ways
-	        // and then either shut down the app or limit the user to a
-	        // restricted set of features.
-	        // In this example, we show a dialog that takes the user to Market.
+		}
 
-	        unlicensedDialog = dialogBuilder.setTitle("Unlicensed App")
-            .setMessage("Sorry, it appears that this copy of the app may be unlicensed. If you feel this is in error please contact the developer.")
-            .setPositiveButton("Buy It",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog,
-                                int which) {
-                            Intent marketIntent = new Intent(
-                                    Intent.ACTION_VIEW,
-                                    Uri.parse("http://market.android.com/details?id="
-                                            + getPackageName()));
-                            startActivity(marketIntent);
-                            finish();
-                        }
-                    })
-            .setNegativeButton("Quit",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog,
-                                int which) {
-                            finish();
-                        }
-                    })
+		public void dontAllow() {
+			//Log.e("LICENSE", "DONT ALLOW!!!");
+			if (isFinishing()) {
+				// Don't update UI if Activity is finishing.
+				return;
+			}
 
-            .setCancelable(false)
-            .setOnKeyListener(new DialogInterface.OnKeyListener() {
-                public boolean onKey(DialogInterface dialogInterface,
-                        int i, KeyEvent keyEvent) {
-                    //Log.i("License", "Key Listener");
-                    finish();
-                    return true;
-                }
-            }).create();
-	        
-	        unlicensedDialog.show();
-	    }
+			licensed = false;
+			checkingLicense = false;
+			didCheck = true;
 
-	    public void applicationError(int errorCode) {
-	        if (isFinishing()) {
-	            // Don't update UI if Activity is finishing.
-	            return;
-	        }
-	        licensed = false;
-	        checkingLicense = false;
-	        didCheck = true;
-	        // This is a polite way of saying the developer made a mistake
-	        // while setting up or calling the license checker library.
-	        // Please examine the error code and fix the error.
-	        String result = String.format( "Woops! Seems that the developer messed up! ErrorCode:%d", errorCode);
-	        displayResult(result);
-	    }
+			// Should not allow access. In most cases, the app should assume
+			// the user has access unless it encounters this. If it does,
+			// the app should inform the user of their unlicensed ways
+			// and then either shut down the app or limit the user to a
+			// restricted set of features.
+			// In this example, we show a dialog that takes the user to Market.
 
-	    public void allow(int reason) {
-	    	allow();
-	    }
+			unlicensedDialog = dialogBuilder.setTitle("Unlicensed App")
+					.setMessage("Sorry, it appears that this copy of the app may be unlicensed. If you feel this is in error please contact the developer.")
+					.setPositiveButton("Buy It",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+													int which) {
+									Intent marketIntent = new Intent(
+											Intent.ACTION_VIEW,
+											Uri.parse("http://market.android.com/details?id="
+													+ getPackageName()));
+									startActivity(marketIntent);
+									finish();
+								}
+							})
+					.setNegativeButton("Quit",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+													int which) {
+									finish();
+								}
+							})
 
-	    public void dontAllow(int reason) {
-	    	dontAllow();
-	    }
+					.setCancelable(false)
+					.setOnKeyListener(new DialogInterface.OnKeyListener() {
+						public boolean onKey(DialogInterface dialogInterface,
+											 int i, KeyEvent keyEvent) {
+							//Log.i("License", "Key Listener");
+							finish();
+							return true;
+						}
+					}).create();
+
+			unlicensedDialog.show();
+		}
+
+		public void applicationError(int errorCode) {
+			if (isFinishing()) {
+				// Don't update UI if Activity is finishing.
+				return;
+			}
+			licensed = false;
+			checkingLicense = false;
+			didCheck = true;
+			// This is a polite way of saying the developer made a mistake
+			// while setting up or calling the license checker library.
+			// Please examine the error code and fix the error.
+			String result = String.format( "Woops! Seems that the developer messed up! ErrorCode:%d", errorCode);
+			displayResult(result);
+		}
+
+		public void allow(int reason) {
+			allow();
+		}
+
+		public void dontAllow(int reason) {
+			dontAllow();
+		}
 
 	}
 
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+		super.onCreate(savedInstanceState);
 
-        // Check the license
-       // checkLicense();
-    }
-	
+		// Check the license
+		checkLicense();
+	}
+
 	@Override
 	public void onDestroy() {
-	    super.onDestroy();
-	    if (mChecker != null) {
-	        //Log.i("LIcense", "distroy checker");
-	        mChecker.onDestroy();
-	    }
+		super.onDestroy();
+		if (mChecker != null) {
+			//Log.i("LIcense", "distroy checker");
+			mChecker.onDestroy();
+		}
 	}
-	
-	
-	
+
+
+
 }

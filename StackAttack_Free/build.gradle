@@ -1,6 +1,3 @@
-buildscript {
-    apply from: './constants.gradle'
-}
 
 plugins {
     id("com.android.application")
@@ -9,27 +6,17 @@ plugins {
 }
 
 android {
-
-    compileSdkVersion configuration.compileSdk
+    lintOptions {
+        abortOnError false
+    }
     defaultConfig {
-        def bitriseBuildNumber = System.getenv("BITRISE_BUILD_NUMBER")
-        versionCode 2
 
-        buildConfigField "String", "GIT_SHA", "\"${gitSha}\""
-        buildConfigField "String", "BUILD_TIME", "\"${buildTime}\""
-        buildConfigField "String", "APP_VERSION", "\"${configuration.appVersion}\""
         applicationId "com.wagoodman.stackattack.lite"
         minSdkVersion 16
         targetSdkVersion 29
-        testInstrumentationRunner "de.jensklingenberg.sheasy.UiTestsRunner"
+        compileSdkVersion 16
 
-        multiDexEnabled true
-        signingConfig signingConfigs.debug
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = ["resourcePackageName": android.defaultConfig.applicationId]
-            }
-        }
+
     }
 
     compileOptions {
@@ -38,12 +25,7 @@ android {
 
     }
 
-    // Always show the result of every unit test, even if it passes.
-    testOptions.unitTests.all {
-        testLogging {
-            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
-        }
-    }
+
 
     buildTypes {
         debug {
@@ -60,27 +42,26 @@ android {
     }
 
 
+
+}
+
+android {
     lintOptions {
         abortOnError false
     }
-
-    dependencies {
-        implementation project(':StackAttackLibrary')
-        implementation project(':licensingLib')
-
-    }
 }
 
 
+dependencies {
+    implementation project(':licensingLib')
 
+    implementation project(':StackAttackLibrary')
 
-task copyFiles(type: Copy) {
-    from '../documentation/API/1'
-    into '../documentation/API/2'
 }
+
+
 
 // workaround for https://youtrack.jetbrains.com/issue/KT-27170
 configurations {
     compileClasspath
 }
-

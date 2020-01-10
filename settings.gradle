@@ -1,1 +1,1 @@
-include   ':StackAttack_Paid', ':StackAttackLibrary', ':licensingLib'
+include    ':StackAttackLibrary', ':licensingLib', ':StackAttack_Free', ':StackAttack_Paid'

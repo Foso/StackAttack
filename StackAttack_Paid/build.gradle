@@ -1,10 +1,7 @@
-buildscript {
-    apply from: './constants.gradle'
-}
+
 
 plugins {
     id("com.android.application")
-
 
 }
 
@@ -14,14 +11,10 @@ android {
     }
     defaultConfig {
 
-
-        buildConfigField "String", "APP_VERSION", "\"${configuration.appVersion}\""
         applicationId "com.wagoodman.stackattack.full"
         minSdkVersion 16
 
         targetSdkVersion 29
-        versionName configuration.appVersion
-        testInstrumentationRunner "de.jensklingenberg.sheasy.UiTestsRunner"
         compileSdkVersion 16
 
 
