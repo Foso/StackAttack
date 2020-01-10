@@ -1,8 +1,11 @@
-package com.wagoodman.stackattack;
+package com.wagoodman.stackattack.block;
 
-import java.text.DecimalFormat;
 import javax.microedition.khronos.opengles.GL10;
 
+import com.wagoodman.stackattack.AnimationBroker;
+import com.wagoodman.stackattack.Color;
+import com.wagoodman.stackattack.ColorBroker;
+import com.wagoodman.stackattack.GLShape;
 import com.wagoodman.stackattack.MainActivity;
 import com.wagoodman.stackattack.World;
 

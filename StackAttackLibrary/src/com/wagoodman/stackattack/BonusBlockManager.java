@@ -2,10 +2,7 @@ package com.wagoodman.stackattack;
 
 import java.text.DecimalFormat;
 
-import com.wagoodman.stackattack.BlockValue;
-import com.wagoodman.stackattack.MotionEquation;
-import com.wagoodman.stackattack.MainActivity;
-import com.wagoodman.stackattack.TransformType;
+import com.wagoodman.stackattack.block.BlockValue;
 
 
 import android.content.Context;

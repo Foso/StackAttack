@@ -1,4 +1,4 @@
-package com.wagoodman.stackattack;
+package com.wagoodman.stackattack.board;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -6,6 +6,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import android.content.Context;
 import android.util.SparseIntArray;
+
+import com.wagoodman.stackattack.MainActivity;
 
 public class BoardSideStatusManager 
 {

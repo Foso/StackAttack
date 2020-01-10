@@ -73,7 +73,7 @@ category#android.intent.category.LAUNCHER
 ADDED from /home/jens/Code/2020/StackAttack/StackAttackLibrary/AndroidManifest.xml:29:17-77
 	android:name
 		ADDED from /home/jens/Code/2020/StackAttack/StackAttackLibrary/AndroidManifest.xml:29:27-74
-activity#com.wagoodman.stackattack.AppPreferences
+activity#com.wagoodman.stackattack.data.AppPreferences
 ADDED from /home/jens/Code/2020/StackAttack/StackAttackLibrary/AndroidManifest.xml:33:6-36:55
 	android:screenOrientation
 		ADDED from /home/jens/Code/2020/StackAttack/StackAttackLibrary/AndroidManifest.xml:36:16-52
@@ -82,8 +82,8 @@ ADDED from /home/jens/Code/2020/StackAttack/StackAttackLibrary/AndroidManifest.x
 	android:theme
 		ADDED from /home/jens/Code/2020/StackAttack/StackAttackLibrary/AndroidManifest.xml:35:16-80
 	android:name
-		ADDED from /home/jens/Code/2020/StackAttack/StackAttackLibrary/AndroidManifest.xml:34:16-46
-activity#com.wagoodman.stackattack.AppPreferencesFragment
+		ADDED from /home/jens/Code/2020/StackAttack/StackAttackLibrary/AndroidManifest.xml:34:16-51
+activity#com.wagoodman.stackattack.ui.AppPreferencesFragment
 ADDED from /home/jens/Code/2020/StackAttack/StackAttackLibrary/AndroidManifest.xml:37:6-40:55
 	android:screenOrientation
 		ADDED from /home/jens/Code/2020/StackAttack/StackAttackLibrary/AndroidManifest.xml:40:16-52
@@ -92,4 +92,4 @@ ADDED from /home/jens/Code/2020/StackAttack/StackAttackLibrary/AndroidManifest.x
 	android:theme
 		ADDED from /home/jens/Code/2020/StackAttack/StackAttackLibrary/AndroidManifest.xml:39:16-80
 	android:name
-		ADDED from /home/jens/Code/2020/StackAttack/StackAttackLibrary/AndroidManifest.xml:38:16-54
+		ADDED from /home/jens/Code/2020/StackAttack/StackAttackLibrary/AndroidManifest.xml:38:16-57

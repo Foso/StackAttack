@@ -1,27 +1,10 @@
 package com.wagoodman.stackattack;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
 import java.util.Map;
 
-import com.wagoodman.stackattack.Animation;
-import com.wagoodman.stackattack.Block;
-import com.wagoodman.stackattack.Color;
-import com.wagoodman.stackattack.ColorState;
-import com.wagoodman.stackattack.Coord;
-import com.wagoodman.stackattack.DropSectionState;
-import com.wagoodman.stackattack.FontManager;
-import com.wagoodman.stackattack.GL3DText;
-import com.wagoodman.stackattack.GLShape;
-import com.wagoodman.stackattack.MotionEquation;
-import com.wagoodman.stackattack.PxCropSwipeLeft;
-import com.wagoodman.stackattack.PxDoubleStaticSwipeSideways;
-import com.wagoodman.stackattack.PxDoubleStaticSwipeUp;
-import com.wagoodman.stackattack.PxImage;
-import com.wagoodman.stackattack.PxMoveHinter;
-import com.wagoodman.stackattack.TutorialBannerMenu;
+import com.wagoodman.stackattack.block.Block;
+import com.wagoodman.stackattack.board.Board;
 
 import android.content.Context;
 
@@ -1032,15 +1015,15 @@ public class TutorialState
 								
 								// remember red blocks
 								if (color == Color.RED)
-									mRedMatchBlocks.add(block.getId());
+									mRedMatchBlocks.add(block.id);
 								
 								// remember yellow blocks
 								if (color == Color.YELLOW)
-									mYellowMatchBlocks.add(block.getId());
+									mYellowMatchBlocks.add(block.id);
 								
 								// remember blue hint block
 								if (row == hintCoord.getRow() && col == hintCoord.getCol())
-									mBlueHintBlock = block.getId();
+									mBlueHintBlock = block.id;
 								
 								// Create the new block!
 								temp.spawnBlock( 
@@ -1051,7 +1034,7 @@ public class TutorialState
 						}
 						else
 						{
-							if (showHintBlock && block.getId() == mBlueHintBlock)
+							if (showHintBlock && block.id == mBlueHintBlock)
 							{
 								// change block
 								block.mColor.enqueue( 
@@ -1070,12 +1053,12 @@ public class TutorialState
 							{
 								if (block.mColor.mCurrentColor == Color.RED)
 								{
-									mRedMatchBlocks.remove(block.getId());
+									mRedMatchBlocks.remove(block.id);
 								}
 								
 								if (color == Color.RED)
 								{
-									mRedMatchBlocks.add(block.getId());
+									mRedMatchBlocks.add(block.id);
 								}
 								
 								// change block
@@ -1103,7 +1086,7 @@ public class TutorialState
 						// delete block
 						if (block != null)
 						{
-							temp.destroyBlock(block.getId());
+							temp.destroyBlock(block.id);
 						}
 					}
 					

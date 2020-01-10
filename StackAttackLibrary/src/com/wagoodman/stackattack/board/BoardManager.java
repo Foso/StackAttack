@@ -1,4 +1,4 @@
-package com.wagoodman.stackattack;
+package com.wagoodman.stackattack.board;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,6 +8,17 @@ import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
 import android.util.SparseIntArray;
+
+import com.wagoodman.stackattack.Coord;
+import com.wagoodman.stackattack.DropSection;
+import com.wagoodman.stackattack.GameDifficulty;
+import com.wagoodman.stackattack.GameMode;
+import com.wagoodman.stackattack.GameState;
+import com.wagoodman.stackattack.MainActivity;
+import com.wagoodman.stackattack.MenuManager;
+import com.wagoodman.stackattack.Orientation;
+import com.wagoodman.stackattack.VirtualShape;
+import com.wagoodman.stackattack.World;
 
 public class BoardManager extends VirtualShape implements Iterable<Board>
 {
@@ -219,7 +230,7 @@ public class BoardManager extends VirtualShape implements Iterable<Board>
 		mHorizontalTransformingEnabled = false;
 		pauseBoardProgression();
 		
-		mGameState.pause(getId());
+		mGameState.pause(id);
 	}
 	
 	public void resumeGame()
@@ -227,7 +238,7 @@ public class BoardManager extends VirtualShape implements Iterable<Board>
 		mHorizontalTransformingEnabled = true;
 		resumeBoardProgression(true, false);
 		
-		mGameState.resume(getId());
+		mGameState.resume(id);
 	}
 	
 	
@@ -1202,7 +1213,7 @@ public class BoardManager extends VirtualShape implements Iterable<Board>
 				
 				// translate to...
 				gl.glTranslatef(0, 
-						-(mCurrentGLYOffset + game.getWorld().mGLBlockLength*MainActivity.ROWCOUNT/4), // bottom of the board (ish)
+						-(mCurrentGLYOffset + game.getWorld().mGLBlockLength* MainActivity.ROWCOUNT/4), // bottom of the board (ish)
 						-mVirtualShapeCenterDepth + mBoardDepth //at the board depth
 						);
 	

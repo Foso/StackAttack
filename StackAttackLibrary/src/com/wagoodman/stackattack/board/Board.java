@@ -1,4 +1,4 @@
-package com.wagoodman.stackattack;
+package com.wagoodman.stackattack.board;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,6 +20,30 @@ import android.content.Context;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
 
+import com.wagoodman.stackattack.Animation;
+import com.wagoodman.stackattack.AnimationBroker;
+import com.wagoodman.stackattack.BaseConverterUtil;
+import com.wagoodman.stackattack.BonusBlockManager;
+import com.wagoodman.stackattack.Color;
+import com.wagoodman.stackattack.ColorState;
+import com.wagoodman.stackattack.Coord;
+import com.wagoodman.stackattack.GLShape;
+import com.wagoodman.stackattack.GameMode;
+import com.wagoodman.stackattack.GarbageGenerator;
+import com.wagoodman.stackattack.GarbageType;
+import com.wagoodman.stackattack.GridElement;
+import com.wagoodman.stackattack.GridManager;
+import com.wagoodman.stackattack.GroupManager;
+import com.wagoodman.stackattack.Identity;
+import com.wagoodman.stackattack.MainActivity;
+import com.wagoodman.stackattack.MotionEquation;
+import com.wagoodman.stackattack.Orientation;
+import com.wagoodman.stackattack.ShapeManager;
+import com.wagoodman.stackattack.World;
+import com.wagoodman.stackattack.block.Block;
+import com.wagoodman.stackattack.block.BlockInfo;
+import com.wagoodman.stackattack.block.BlockValue;
+
 public class Board extends Identity
 {
 	private static final String TAG = "Board";
@@ -30,10 +54,10 @@ public class Board extends Identity
 	
 	
 	// Component Managers
-	GridManager 		mGrid;
-	GroupManager 		mGroups;
-	ShapeManager 		mBlocks;
-	GarbageGenerator	mGarbageGenerator;
+    public GridManager mGrid;
+	public GroupManager mGroups;
+	public ShapeManager mBlocks;
+	public GarbageGenerator mGarbageGenerator;
 	
 	// State
 	public Boolean isDeleted = false;
@@ -70,10 +94,10 @@ public class Board extends Identity
 	private Boolean mGenerateBonusBlock = false;
 	
 	// random pool seeded by board Id
-	private final Random randObjPool  = new Random( (long)(BaseConverterUtil.tolkenizeStringToInt(getId())) );
+	private final Random randObjPool  = new Random( (long)(BaseConverterUtil.tolkenizeStringToInt(id)) );
 	public BonusBlockManager mBonusBlockManager;
 	
-	Board(Context ctxt)
+	public Board(Context ctxt)
 	{
 		// get the game object from context
 		mContext = ctxt;
@@ -105,9 +129,9 @@ public class Board extends Identity
 	}
 	*/
 	
-	public synchronized Boolean spawnBlock( Block block, int row, int col, Animation anim, int duration )
+	public synchronized Boolean spawnBlock(Block block, int row, int col, Animation anim, int duration )
 	{
-		if (mGrid.setBlockId(row, col, block.getId()))
+		if (mGrid.setBlockId(row, col, block.id))
 		{
 			block.mAnimation.queueAnimation(anim, null, new Coord<Integer>(row, col), duration, null, mOrient );
 			
@@ -152,9 +176,9 @@ public class Board extends Identity
 			// set blocks group id
 			block.setGroupId(groupId);
 			// add to playable grid
-			mGrid.setBlockId(row, col, block.getId());
+			mGrid.setBlockId(row, col, block.id);
 			// add to group
-			mGroups.add(groupId, block.getId(), col);
+			mGroups.add(groupId, block.id, col);
 			
 			
 			// queue animation (spawn)
@@ -185,7 +209,7 @@ public class Board extends Identity
 			
 			// make wrapper
 			Block wrapper = new Block(mContext, World.BLOCKTYPES.GROUPWRAPPER, mGroups.getColor(groupId), row, mGroups.getMiddleCol(groupId) , true, false);
-			wrapper.setId(groupId);
+			wrapper.id = groupId;
 			
 			// scale wrapper around garbage
 			//wrapper.mAnimation.setScale(4f, 1f, 1f);		
@@ -447,9 +471,9 @@ public class Board extends Identity
 			mBlocks.put(newBlock);
 			
 			if (mOrient == Orientation.NORMAL)
-				mRowOnDeck.add( new GridElement( mContext, -1, col,  newBlock.getId()) );
+				mRowOnDeck.add( new GridElement( mContext, -1, col, newBlock.id) );
 			else
-				mRowOnDeck.add( new GridElement( mContext, MainActivity.ROWCOUNT , col,  newBlock.getId()) );
+				mRowOnDeck.add( new GridElement( mContext, MainActivity.ROWCOUNT , col, newBlock.id) );
 			
 			
 		}
@@ -1138,8 +1162,8 @@ public class Board extends Identity
 				
 				// fade from grey to new color pick
 				block.mColor.enqueue( 
-					new ColorState( 
-							new MotionEquation[] {MotionEquation.LOGISTIC, MotionEquation.LOGISTIC, MotionEquation.LOGISTIC, MotionEquation.LINEAR}, 
+					new ColorState(
+							new MotionEquation[] {MotionEquation.LOGISTIC, MotionEquation.LOGISTIC, MotionEquation.LOGISTIC, MotionEquation.LINEAR},
 							Color.BLACK, 
 							block.mColor.mCurrentColor,
 							new int[] {mInflateDuration, mInflateDuration, mInflateDuration, mInflateDuration}, 
@@ -1226,10 +1250,10 @@ public class Board extends Identity
 					pauseBoardSettle();
 					
 					// set active block
-					mBlocks.setActive(block.getId(), rowcol);
+					mBlocks.setActive(block.id, rowcol);
 					
 					// populate drop row
-					populateActiveDropRow(block.getId());
+					populateActiveDropRow(block.id);
 									
 					//game.text = "Pickup " + block.mColor.mCurrentColor + "  r: " + rowcol.getRow() + ", c: " + rowcol.getCol() +"\n" + game.text;
 					//game.textviewHandler.post( game.updateTextView );
@@ -1355,7 +1379,7 @@ public class Board extends Identity
 					}
 					
 					// deactivate
-					mBlocks.setInactive(block.getId());
+					mBlocks.setInactive(block.id);
 					
 					// set trigger for match check
 					mBoardMatchTrigger = true;
@@ -1507,18 +1531,18 @@ public class Board extends Identity
 						{
 							if (mOrient == Orientation.NORMAL)
 							{
-								if ( mTopRowBlocks.contains(block1_swap.getId()) && rowcol2.getRow() < MainActivity.ROWCOUNT-1 )
+								if ( mTopRowBlocks.contains(block1_swap.id) && rowcol2.getRow() < MainActivity.ROWCOUNT-1 )
 								{
-									mTopRowBlocks.remove(block1_swap.getId());
-									cancelWobble(block1_swap.getId());
+									mTopRowBlocks.remove(block1_swap.id);
+									cancelWobble(block1_swap.id);
 								}
 							}
 							else
 							{
-								if ( mTopRowBlocks.contains(block1_swap.getId()) && rowcol2.getRow() > 0 )
+								if ( mTopRowBlocks.contains(block1_swap.id) && rowcol2.getRow() > 0 )
 								{
-									mTopRowBlocks.remove(block1_swap.getId());
-									cancelWobble(block1_swap.getId());
+									mTopRowBlocks.remove(block1_swap.id);
+									cancelWobble(block1_swap.id);
 								}
 							}
 						}
@@ -1526,18 +1550,18 @@ public class Board extends Identity
 						{
 							if (mOrient == Orientation.NORMAL)
 							{
-								if ( mTopRowBlocks.contains(block2_swap.getId()) && rowcol1.getRow() < MainActivity.ROWCOUNT-1 )
+								if ( mTopRowBlocks.contains(block2_swap.id) && rowcol1.getRow() < MainActivity.ROWCOUNT-1 )
 								{
-									mTopRowBlocks.remove(block2_swap.getId());
-									cancelWobble(block2_swap.getId());
+									mTopRowBlocks.remove(block2_swap.id);
+									cancelWobble(block2_swap.id);
 								}
 							}
 							else
 							{
-								if ( mTopRowBlocks.contains(block2_swap.getId()) && rowcol1.getRow() > 0 )
+								if ( mTopRowBlocks.contains(block2_swap.id) && rowcol1.getRow() > 0 )
 								{
-									mTopRowBlocks.remove(block2_swap.getId());
-									cancelWobble(block2_swap.getId());
+									mTopRowBlocks.remove(block2_swap.id);
+									cancelWobble(block2_swap.id);
 								}
 							}
 							
@@ -1639,7 +1663,7 @@ public class Board extends Identity
 						// this is the middle col, drop the wrapper
 						try
 						{
-							mBlocks.get(block_settle.getGroupId()).mAnimation.queueAnimation(Animation.SETTLETO, fromRowCol, toRowCol, null, null, mOrient);		
+							mBlocks.get(block_settle.getGroupId()).mAnimation.queueAnimation(Animation.SETTLETO, fromRowCol, toRowCol, null, null, mOrient);
 						}
 						catch (Exception e)
 						{
@@ -1657,9 +1681,9 @@ public class Board extends Identity
 				//game.textviewHandler.post( game.updateTextView );
 				
 				// check for wobbling of blocks in the top row, if the block has dropped, then stop wobbling!
-				if ( mTopRowBlocks.remove(block_settle.getId()) )
+				if ( mTopRowBlocks.remove(block_settle.id) )
 				{
-					cancelWobble(block_settle.getId());
+					cancelWobble(block_settle.id);
 				}
 				
 				return true;
@@ -1697,7 +1721,7 @@ public class Board extends Identity
 				block_match.isInteractable = false;
 				
 				// may be on top row, try to remove it from the toprowlist
-				mTopRowBlocks.remove(block_match.getId());
+				mTopRowBlocks.remove(block_match.id);
 				
 				// Flash
 				block_match.mColor.enqueue( 
@@ -1735,14 +1759,14 @@ public class Board extends Identity
 				
 				// fix: if active block gets matched but not droped first (no event fires) then this drops it. Otherwise
 				// 'readytoincrementboard()' will fail until the player interacts with the board again
-				if ( mBlocks.mActiveBlock != null && block_match.getId() == mBlocks.mActiveBlock.getId())
+				if ( mBlocks.mActiveBlock != null && block_match.id == mBlocks.mActiveBlock.id)
 				{
 					dropActiveBlock(true, location, false);
 				}
 				
 				// Move
 				if (block_match.mBlockValue != null && block_match.mBlockValue != BlockValue.NORMAL)
-					return new BlockInfo(block_match.getId(), location, block_match.mBlockValue);
+					return new BlockInfo(block_match.id, location, block_match.mBlockValue);
 				else
 					block_match.mAnimation.queueAnimation(Animation.MATCH, null, null, mMatchAnimationTime, delay, null);
 				
@@ -1762,7 +1786,7 @@ public class Board extends Identity
 				block_match.isInteractable = false;
 				
 				// may be on top row, try to remove it from the toprowlist
-				mTopRowBlocks.remove(block_match.getId());
+				mTopRowBlocks.remove(block_match.id);
 				
 				// Flash
 				block_match.mColor.enqueue( 
@@ -1800,9 +1824,9 @@ public class Board extends Identity
 
 				// fix: if active block gets matched but not droped first (no event fires) then this drops it. Otherwise
 				// 'readytoincrementboard()' will fail until the player interacts with the board again
-				if (mBlocks.mActiveBlock != null && block_match.getId() == mBlocks.mActiveBlock.getId())
+				if (mBlocks.mActiveBlock != null && block_match.id == mBlocks.mActiveBlock.id)
 				{
-					dropActiveBlock(true, mGrid.getBlockPosition(block_match.getId()), false);
+					dropActiveBlock(true, mGrid.getBlockPosition(block_match.id), false);
 				}
 				
 				// Move
@@ -2647,7 +2671,7 @@ public class Board extends Identity
 										destroyBlock.isInteractable = false;
 										deadBlockIds.add( mGrid.getBlockId(destroyPos) );
 										// might have contributed to the top row, attempt to remove it
-										mTopRowBlocks.remove(destroyBlock.getId());
+										mTopRowBlocks.remove(destroyBlock.id);
 									}
 								}
 							}
@@ -2702,10 +2726,10 @@ public class Board extends Identity
 								destroyRowBlock.mAnimation.queueAnimation(Animation.BONUS_BOMB_SPIN_DESTROY,  null , null, mMatchAnimationTime*4, 0, null);
 							
 							if (!destroyRowBlock.isMatching)
-								deadBlockIds.add( destroyRowBlock.getId() );
+								deadBlockIds.add(destroyRowBlock.id);
 							
 							// might have contributed to the top row, attempt to remove it
-							mTopRowBlocks.remove( destroyRowBlock.getId());
+							mTopRowBlocks.remove(destroyRowBlock.id);
 						}
 						catch (Exception e)
 						{
@@ -4065,7 +4089,7 @@ public class Board extends Identity
 						{
 							for (int xyz = 0; xyz < 3; xyz++)
 							{
-								tempIndex = mBonusBlockManager.mWoozyManager.getIndexFromId(block.getId(), transType, xyz);
+								tempIndex = mBonusBlockManager.mWoozyManager.getIndexFromId(block.id, transType, xyz);
 								
 								if (transType == AnimationBroker.POS)
 									tempOffset[transType][xyz] = mBonusBlockManager.mWoozyManager.mResultProgress[tempIndex] * game.getWorld().mGLBlockLength*0.1f;

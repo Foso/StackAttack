@@ -7,15 +7,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Callable;
 import javax.microedition.khronos.opengles.GL10;
 
-import com.wagoodman.stackattack.AppPreferences;
-import com.wagoodman.stackattack.FontManager;
-import com.wagoodman.stackattack.MotionEquation;
-import com.wagoodman.stackattack.MainActivity;
-import com.wagoodman.stackattack.World;
+import com.wagoodman.stackattack.data.AppPreferences;
+import com.wagoodman.stackattack.ui.AppPreferencesFragment;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build;
 
 

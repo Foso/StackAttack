@@ -610,13 +610,13 @@ public class GLRollerBox<Type> extends GLMenuItem
 	*/
 	
 	@Override
-	int getOutroDuration()
+	public int getOutroDuration()
 	{
 		return mOutroTransform.getDuration();
 	}
 	
 	@Override
-	void update(long now, Boolean primaryThread, Boolean secondaryThread)
+    public void update(long now, Boolean primaryThread, Boolean secondaryThread)
 	{
 		if (secondaryThread)
 		{
@@ -746,7 +746,7 @@ public class GLRollerBox<Type> extends GLMenuItem
 	}
 
 	@Override
-	void draw(GL10 gl, float pixYOffset)
+	public void draw(GL10 gl, float pixYOffset)
 	{
 		
 	

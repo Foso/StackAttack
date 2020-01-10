@@ -1,4 +1,6 @@
-package com.wagoodman.stackattack;
+package com.wagoodman.stackattack.block;
+
+import com.wagoodman.stackattack.R;
 
 import java.util.Random;
 

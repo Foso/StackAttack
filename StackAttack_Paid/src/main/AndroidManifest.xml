@@ -33,11 +33,11 @@
         </activity>
 
 	    <activity android:label="@string/app_name"
-	              android:name="com.wagoodman.stackattack.AppPreferences"
+	              android:name="com.wagoodman.stackattack.data.AppPreferences"
 	              android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
 	              android:screenOrientation="portrait" />
 	    <activity android:label="@string/app_name"
-	              android:name="com.wagoodman.stackattack.AppPreferencesFragment"
+	              android:name="com.wagoodman.stackattack.ui.AppPreferencesFragment"
 	              android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
 	              android:screenOrientation="portrait" />
         

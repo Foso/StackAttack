@@ -1065,7 +1065,7 @@ public final class AnimationBroker
 					if (index == -1)
 						ret = false;
 					else
-						elements.put(index, states[idx].getId() );
+						elements.put(index, states[idx].id);
 				}
 				
 				// replace history
@@ -1184,7 +1184,7 @@ public final class AnimationBroker
 				
 					if (mCompanyFront[index] != null)
 					{
-						if (mCompanyFront[index].getId() == id && mCompanyFront[index].isCompleted == false)
+						if (mCompanyFront[index].id == id && mCompanyFront[index].isCompleted == false)
 						{
 
 							

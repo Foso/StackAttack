@@ -314,55 +314,55 @@ public class FogScreen extends GLMenuItem
 	}
 	
 	@Override
-	void intro() {
+	public void intro() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	void intro(Integer dur) {
+	public void intro(Integer dur) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	void outro() {
+	public void outro() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	void outro(Integer dur) {
+	public void outro(Integer dur) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	void setFontDimensions() {
+	public void setFontDimensions() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	void setLabelDimensions() {
+	public void setLabelDimensions() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	int getOutroDuration() {
+	public int getOutroDuration() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	Boolean interact(int x, int y, int pixYOffset) {
+	public Boolean interact(int x, int y, int pixYOffset) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	void draw(GL10 gl, float pixYOffset) {
+	public void draw(GL10 gl, float pixYOffset) {
 		// TODO Auto-generated method stub
 		
 	}

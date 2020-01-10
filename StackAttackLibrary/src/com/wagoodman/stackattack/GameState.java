@@ -71,7 +71,7 @@ public class GameState
 	public String mScoreBannerText = " ";
 	
 	
-	GameState(Context ctxt)
+	public GameState(Context ctxt)
 	{
 		mContext = ctxt;
 		game = (MainActivity) ctxt;
@@ -79,7 +79,7 @@ public class GameState
 		init();
 	}
 	
-	GameState(Context ctxt, GameDifficulty gd, GameMode gm)
+	public GameState(Context ctxt, GameDifficulty gd, GameMode gm)
 	{
 		mContext = ctxt;
 		game = (MainActivity) ctxt;

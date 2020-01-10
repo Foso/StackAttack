@@ -11,7 +11,7 @@ public class ArrayQueue<Type> implements Queue<Type>
 	private int back;
 
 	private static final int DEFAULT_CAPACITY = 10;
-	
+
 
 	public ArrayQueue()
 	{
@@ -19,7 +19,7 @@ public class ArrayQueue<Type> implements Queue<Type>
 		makeEmpty();
 	}
 
-	
+
 	// Test if the queue is logically empty.
 	public boolean isEmpty()
 	{

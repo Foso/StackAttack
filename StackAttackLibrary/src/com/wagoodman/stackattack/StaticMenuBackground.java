@@ -143,24 +143,24 @@ public class StaticMenuBackground extends GLMenuItem
 	}
 
 	@Override
-	void setLabelDimensions()
+	public void setLabelDimensions()
 	{
 	}
 	
 	@Override
-	void setFontDimensions()
+	public void setFontDimensions()
 	{
 	}
 	
 	@Override
-	int getOutroDuration()
+	public int getOutroDuration()
 	{
 		return 0;
 	}
 	
 	
 	@Override
-	Boolean interact(int x, int y, int pixYOffset)
+	public Boolean interact(int x, int y, int pixYOffset)
 	{
 		// TODO Auto-generated method stub
 		return null;

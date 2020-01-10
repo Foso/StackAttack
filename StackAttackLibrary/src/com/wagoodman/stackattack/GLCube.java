@@ -1,22 +1,18 @@
 package com.wagoodman.stackattack;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
-import java.nio.ShortBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.opengl.GLUtils;
 
+import com.wagoodman.stackattack.block.BlockValue;
 
-class GLCube
+
+public class GLCube
 {
 	//private static final String TAG = "Rect";
 	public static final Boolean debug = false;
@@ -27,7 +23,7 @@ class GLCube
 	
 	private float mWidth, mHeight, mDepth;
 	
-	private int[] mTextureIds = new int[BlockValue.values().length]; 
+	private int[] mTextureIds = new int[BlockValue.values().length];
 	private FloatBuffer[] mTextureBuffers = new FloatBuffer[BlockValue.values().length]; 
 	
 	private int indexLen;

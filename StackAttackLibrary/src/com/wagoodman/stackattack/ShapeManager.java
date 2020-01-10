@@ -1,13 +1,9 @@
 package com.wagoodman.stackattack;
 
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 
-import com.wagoodman.stackattack.Block;
-import com.wagoodman.stackattack.Color;
-import com.wagoodman.stackattack.GLShape;
-import com.wagoodman.stackattack.MainActivity;
+import com.wagoodman.stackattack.block.Block;
 
 import android.content.Context;
 
@@ -98,7 +94,7 @@ public class ShapeManager extends ConcurrentHashMap<String, GLShape>
 		GLShape block = get(id);
 		if (block != null && mActiveBlock != null)
 		{
-			if (mActiveBlock.getId() == id)
+			if (mActiveBlock.id == id)
 			{
 				mActiveBlockStartTime = -1;
 				mActiveBlock = null;
@@ -114,7 +110,7 @@ public class ShapeManager extends ConcurrentHashMap<String, GLShape>
 	{
 		try
 		{
-			put(block.getId(), block);
+			put(block.id, block);
 			return true;
 		}
 		catch(Exception e)
@@ -147,7 +143,7 @@ public class ShapeManager extends ConcurrentHashMap<String, GLShape>
 	{
 		try
 		{
-			remove(block.getId());
+			remove(block.id);
 			return true;
 		}
 		catch(Exception e)
@@ -171,7 +167,7 @@ public class ShapeManager extends ConcurrentHashMap<String, GLShape>
 				{
 					if (block.isInteractable)
 					{
-						ret.add(block.getId());
+						ret.add(block.id);
 					}
 				}
 			}

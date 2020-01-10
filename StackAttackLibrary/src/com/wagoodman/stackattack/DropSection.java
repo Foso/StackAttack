@@ -2,12 +2,7 @@ package com.wagoodman.stackattack;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import com.wagoodman.stackattack.Color;
-import com.wagoodman.stackattack.FontManager;
-import com.wagoodman.stackattack.MotionEquation;
-import com.wagoodman.stackattack.MainActivity;
-import com.wagoodman.stackattack.TransformType;
-import com.wagoodman.stackattack.World;
+import com.wagoodman.stackattack.board.BoardSideStatusIndicator;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;

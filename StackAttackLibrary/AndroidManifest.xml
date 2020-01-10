@@ -31,11 +31,11 @@
         </activity>
 
 	    <activity android:label="@string/app_name"
-	              android:name=".AppPreferences"
+	              android:name=".data.AppPreferences"
 	              android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
 	              android:screenOrientation="portrait" />
 	    <activity android:label="@string/app_name"
-	              android:name=".AppPreferencesFragment"
+	              android:name=".ui.AppPreferencesFragment"
 	              android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
 	              android:screenOrientation="portrait" />
         

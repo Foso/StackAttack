@@ -2,7 +2,7 @@ package com.wagoodman.stackattack;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import com.wagoodman.stackattack.BoardBackdrop;
+import com.wagoodman.stackattack.board.BoardBackdrop;
 
 
 import android.content.Context;

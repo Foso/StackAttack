@@ -9,9 +9,12 @@ buildscript {
     }
 }
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: '*.jar')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 android {
@@ -54,4 +57,5 @@ android {
 
 repositories {
     google()
+    mavenCentral()
 }

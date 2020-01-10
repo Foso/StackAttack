@@ -1,10 +1,18 @@
-package com.wagoodman.stackattack;
+package com.wagoodman.stackattack.board;
 
 import javax.microedition.khronos.opengles.GL10;
 
 
 
 import android.content.Context;
+
+import com.wagoodman.stackattack.AnimationBroker;
+import com.wagoodman.stackattack.Color;
+import com.wagoodman.stackattack.ColorBroker;
+import com.wagoodman.stackattack.ColorState;
+import com.wagoodman.stackattack.GLShape;
+import com.wagoodman.stackattack.MainActivity;
+import com.wagoodman.stackattack.MotionEquation;
 
 
 public class BoardBackdrop extends GLShape
@@ -55,8 +63,8 @@ public class BoardBackdrop extends GLShape
 		mCurrentSteadyStateColor = color;
 		
 		mColor.enqueue( 
-				new ColorState( 
-						new MotionEquation[] {MotionEquation.LINEAR, MotionEquation.LINEAR, MotionEquation.LINEAR, MotionEquation.LINEAR}, 
+				new ColorState(
+						new MotionEquation[] {MotionEquation.LINEAR, MotionEquation.LINEAR, MotionEquation.LINEAR, MotionEquation.LINEAR},
 						mColor.mCurrentColor, 
 						mCurrentSteadyStateColor,
 						new int[] {duration, duration, duration, duration},

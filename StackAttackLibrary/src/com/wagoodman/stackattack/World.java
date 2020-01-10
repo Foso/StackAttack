@@ -3,42 +3,27 @@ package com.wagoodman.stackattack;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import com.wagoodman.stackattack.BlockValue;
-import com.wagoodman.stackattack.Color;
-import com.wagoodman.stackattack.Coord;
-import com.wagoodman.stackattack.DropSection;
-import com.wagoodman.stackattack.DropSectionState;
-import com.wagoodman.stackattack.FinalStarImageSet;
-import com.wagoodman.stackattack.GLCube;
-import com.wagoodman.stackattack.GameDifficulty;
-import com.wagoodman.stackattack.GameMode;
-import com.wagoodman.stackattack.MenuManager;
-import com.wagoodman.stackattack.MotionEquation;
-import com.wagoodman.stackattack.StarImageSet;
-import com.wagoodman.stackattack.TutorialBannerMenu;
+import com.wagoodman.stackattack.block.BlockValue;
+import com.wagoodman.stackattack.board.Board;
+import com.wagoodman.stackattack.board.BoardManager;
 
 import android.content.Context;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.opengl.GLSurfaceView;
-import android.os.AsyncTask;
 import android.os.Handler;
-import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
 import android.widget.Toast;
 
-class World extends GLSurfaceView implements SurfaceHolder.Callback
+public class World extends GLSurfaceView implements SurfaceHolder.Callback
 {
 	private static final String TAG = "World";
 	private static final Boolean debug = false;
@@ -667,7 +652,7 @@ class World extends GLSurfaceView implements SurfaceHolder.Callback
 	private static final int SWIPE_MIN_HORIZ_DISTANCE = 110;
     private static final int SWIPE_MIN_VERTI_DISTANCE = 50;
     private static final int SWIPE_MAX_OFF_PATH = 300;
-	boolean[] hasFinger = {false,false};
+	public boolean[] hasFinger = {false,false};
 	
 	// var [PRI or SEC][X or Y]
 	int[][] start	= {{-1,-1},{-1,-1}};
@@ -872,7 +857,7 @@ class World extends GLSurfaceView implements SurfaceHolder.Callback
 							Coord<Integer> block2 = new Coord<Integer> ( board.mActiveDropRow.get(curPrimaryBoardCoords.getCol()) , curPrimaryBoardCoords.getCol() );
 							
 							// one of the blocks must be the active block
-							if (board.mGrid.getBlockId(block1) == board.mBlocks.mActiveBlock.getId() || board.mGrid.getBlockId(block2) == board.mBlocks.mActiveBlock.getId() )
+							if (board.mGrid.getBlockId(block1) == board.mBlocks.mActiveBlock.id || board.mGrid.getBlockId(block2) == board.mBlocks.mActiveBlock.id)
 								mBoards.swapBlocks(
 									block1, 
 									block2
