@@ -20,4 +20,4 @@ dependencyResolutionManagement {
         }
     }
 }
-include("StackAttackLibrary")
+include("StackAttack")

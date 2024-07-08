@@ -9,9 +9,9 @@ android {
     lint {
         baseline = file("lint-baseline.xml")
     }
-    compileSdkVersion 16
     namespace = "com.wagoodman.stackattack"
     defaultConfig{
+        compileSdk(16)
         minSdkVersion(9)
         targetSdkVersion(16)
     }
