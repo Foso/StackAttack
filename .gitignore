@@ -61,3 +61,4 @@ local.properties
 /StackAttackLibrary/build/
 .gradle/
 .idea/
+/StackAttack/build/
