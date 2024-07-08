@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.4.2" type="baseline" client="gradle" dependencies="false" name="AGP (8.4.2)" variant="all" version="8.4.2">
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead"
+        errorLine1="        return String.format(&quot;%02d:%02d:%02d&quot;, hr, min, sec);"
+        errorLine2="               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/TimeModule.java"
+            line="246"
+            column="16"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead"
+        errorLine1="        return String.format(&quot;%02d:%02d:%02d&quot;, hr, min, sec);"
+        errorLine2="               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/TimeModule.java"
+            line="246"
+            column="16"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead"
+        errorLine1="        return String.format(&quot;%d.%03d&quot;, sec, mil);"
+        errorLine2="               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/TimeModule.java"
+            line="255"
+            column="16"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead"
+        errorLine1="        return String.format(&quot;%d.%03d&quot;, sec, mil);"
+        errorLine2="               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/TimeModule.java"
+            line="255"
+            column="16"/>
+    </issue>
+
+    <issue
+        id="MissingDefaultResource"
+        message="The xml &quot;preferences&quot; in xml-port has no declaration in the base `xml` folder; this can lead to crashes when the resource is queried in a configuration that does not match this qualifier"
+        errorLine1="&lt;PreferenceScreen xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;>"
+        errorLine2=" ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/xml-port/preferences.xml"
+            line="2"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 11 (current min is 9): `android.app.Activity#getFragmentManager`"
+        errorLine1="        getFragmentManager().beginTransaction().replace(android.R.id.content,"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/AppPreferencesFragment.java"
+            line="14"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 11 (current min is 9): `android.app.Activity#getFragmentManager`"
+        errorLine1="        getFragmentManager().beginTransaction().replace(android.R.id.content,"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/AppPreferencesFragment.java"
+            line="14"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 11 (current min is 9): `android.app.FragmentManager#beginTransaction`"
+        errorLine1="        getFragmentManager().beginTransaction().replace(android.R.id.content,"
+        errorLine2="                             ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/AppPreferencesFragment.java"
+            line="14"
+            column="30"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 11 (current min is 9): `android.app.FragmentManager#beginTransaction`"
+        errorLine1="        getFragmentManager().beginTransaction().replace(android.R.id.content,"
+        errorLine2="                             ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/AppPreferencesFragment.java"
+            line="14"
+            column="30"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 11 (current min is 9): `android.app.FragmentTransaction#replace`"
+        errorLine1="        getFragmentManager().beginTransaction().replace(android.R.id.content,"
+        errorLine2="                                                ~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/AppPreferencesFragment.java"
+            line="14"
+            column="49"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 11 (current min is 9): `android.app.FragmentTransaction#replace`"
+        errorLine1="        getFragmentManager().beginTransaction().replace(android.R.id.content,"
+        errorLine2="                                                ~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/AppPreferencesFragment.java"
+            line="14"
+            column="49"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 11 (current min is 9): `android.app.FragmentTransaction#commit`"
+        errorLine1="                new PrefsFragment()).commit();"
+        errorLine2="                                     ~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/AppPreferencesFragment.java"
+            line="15"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 11 (current min is 9): `android.app.FragmentTransaction#commit`"
+        errorLine1="                new PrefsFragment()).commit();"
+        errorLine2="                                     ~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/AppPreferencesFragment.java"
+            line="15"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Class requires API level 11 (current min is 9): `android.preference.PreferenceFragment`"
+        errorLine1="    public static class PrefsFragment extends PreferenceFragment {"
+        errorLine2="                                              ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/AppPreferencesFragment.java"
+            line="19"
+            column="47"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Class requires API level 11 (current min is 9): `android.preference.PreferenceFragment`"
+        errorLine1="    public static class PrefsFragment extends PreferenceFragment {"
+        errorLine2="                                              ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/AppPreferencesFragment.java"
+            line="19"
+            column="47"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 11 (current min is 9): `android.preference.PreferenceFragment#addPreferencesFromResource`"
+        errorLine1="            addPreferencesFromResource(R.xml.preferences);"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/AppPreferencesFragment.java"
+            line="26"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 11 (current min is 9): `android.preference.PreferenceFragment#addPreferencesFromResource`"
+        errorLine1="            addPreferencesFromResource(R.xml.preferences);"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/AppPreferencesFragment.java"
+            line="26"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="SuspiciousIndentation"
+        message="The indentation string here is different from on the previous line (`&quot; &quot;` vs `\t`)"
+        errorLine1="  mTopRowBlocks.addAll(difference);"
+        errorLine2="~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/Board.java"
+            line="781"
+            column="1"/>
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/Board.java"
+            line="768"
+            column="1"
+            message="Previous line indentation here"/>
+    </issue>
+
+    <issue
+        id="SuspiciousIndentation"
+        message="The indentation string here is different from on the previous line (`&quot; &quot;` vs `\t`)"
+        errorLine1="  mTopRowBlocks.addAll(difference);"
+        errorLine2="~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/Board.java"
+            line="781"
+            column="1"/>
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/Board.java"
+            line="768"
+            column="1"
+            message="Previous line indentation here"/>
+    </issue>
+
+    <issue
+        id="SuspiciousIndentation"
+        message="The indentation string here is different from on the previous line (`&quot; &quot;` vs `\t`)"
+        errorLine1="  game.getWorld().draw(gl);"
+        errorLine2=" ~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/GLRenderer.java"
+            line="213"
+            column="2"/>
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/GLRenderer.java"
+            line="198"
+            column="2"
+            message="Previous line indentation here"/>
+    </issue>
+
+    <issue
+        id="SuspiciousIndentation"
+        message="The indentation string here is different from on the previous line (`&quot; &quot;` vs `\t`)"
+        errorLine1="  game.getWorld().draw(gl);"
+        errorLine2=" ~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/GLRenderer.java"
+            line="213"
+            column="2"/>
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/GLRenderer.java"
+            line="198"
+            column="2"
+            message="Previous line indentation here"/>
+    </issue>
+
+    <issue
+        id="SuspiciousIndentation"
+        message="The indentation string here is different from on the previous line (`&quot; &quot;` vs `\t`)"
+        errorLine1="      return super.onKeyDown(keyCode, event);"
+        errorLine2=" ~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/StackAttackBase.java"
+            line="239"
+            column="2"/>
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/StackAttackBase.java"
+            line="225"
+            column="2"
+            message="Previous line indentation here"/>
+    </issue>
+
+    <issue
+        id="SuspiciousIndentation"
+        message="The indentation string here is different from on the previous line (`&quot; &quot;` vs `\t`)"
+        errorLine1="      return super.onKeyDown(keyCode, event);"
+        errorLine2=" ~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/StackAttackBase.java"
+            line="239"
+            column="2"/>
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/StackAttackBase.java"
+            line="225"
+            column="2"
+            message="Previous line indentation here"/>
+    </issue>
+
+    <issue
+        id="SuspiciousIndentation"
+        message="The indentation string here is different from on the previous line (`&quot; &quot;` vs `\t`)"
+        errorLine1="  for(int index = 0 ; index != text.length(); ++index )"
+        errorLine2=" ~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/TexFont.java"
+            line="555"
+            column="2"/>
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/TexFont.java"
+            line="541"
+            column="2"
+            message="Previous line indentation here"/>
+    </issue>
+
+    <issue
+        id="SuspiciousIndentation"
+        message="The indentation string here is different from on the previous line (`&quot; &quot;` vs `\t`)"
+        errorLine1="  for(int index = 0 ; index != text.length(); ++index )"
+        errorLine2=" ~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/TexFont.java"
+            line="555"
+            column="2"/>
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/TexFont.java"
+            line="541"
+            column="2"
+            message="Previous line indentation here"/>
+    </issue>
+
+    <issue
+        id="SuspiciousIndentation"
+        message="The indentation string here is different from on the previous line (`&quot; &quot;` vs `\t`)"
+        errorLine1="   U = col*ColFactor;"
+        errorLine2="  ~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/TexFont.java"
+            line="567"
+            column="3"/>
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/TexFont.java"
+            line="564"
+            column="3"
+            message="Previous line indentation here"/>
+    </issue>
+
+    <issue
+        id="SuspiciousIndentation"
+        message="The indentation string here is different from on the previous line (`&quot; &quot;` vs `\t`)"
+        errorLine1="   U = col*ColFactor;"
+        errorLine2="  ~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/TexFont.java"
+            line="567"
+            column="3"/>
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/TexFont.java"
+            line="564"
+            column="3"
+            message="Previous line indentation here"/>
+    </issue>
+
+    <issue
+        id="SuspiciousIndentation"
+        message="Suspicious indentation: This is indented but is not continuing the previous expression (`streamVolume = strea`...)"
+        errorLine1="      mSoundPool.play(mSoundMap.get(index), streamVolume, streamVolume, 1, 0, 1f);"
+        errorLine2="      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/World.java"
+            line="261"
+            column="7"/>
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/World.java"
+            line="260"
+            column="4"
+            message="Previous statement here"/>
+    </issue>
+
+    <issue
+        id="SuspiciousIndentation"
+        message="Suspicious indentation: This is indented but is not continuing the previous expression (`streamVolume = strea`...)"
+        errorLine1="      mSoundPool.play(mSoundMap.get(index), streamVolume, streamVolume, 1, 0, 1f);"
+        errorLine2="      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/World.java"
+            line="261"
+            column="7"/>
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/World.java"
+            line="260"
+            column="4"
+            message="Previous statement here"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        message="Attribute `hardwareAccelerated` is only used in API level 11 and higher (current min is 9)"
+        errorLine1="        android:hardwareAccelerated=&quot;true&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="18"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RedundantLabel"
+        message="Redundant label can be removed"
+        errorLine1="            android:label=&quot;@string/app_name&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="27"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="RedundantLabel"
+        message="Redundant label can be removed"
+        errorLine1="            android:label=&quot;@string/app_name&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="38"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="RedundantLabel"
+        message="Redundant label can be removed"
+        errorLine1="            android:label=&quot;@string/app_name&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="43"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="LockedOrientationActivity"
+        message="Expecting `android:screenOrientation=&quot;unspecified&quot;` or `&quot;fullSensor&quot;` for this activity so the user can use the application in any orientation and provide a great experience on Chrome OS devices"
+        errorLine1="            android:screenOrientation=&quot;portrait&quot;>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="29"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="LockedOrientationActivity"
+        message="Expecting `android:screenOrientation=&quot;unspecified&quot;` or `&quot;fullSensor&quot;` for this activity so the user can use the application in any orientation and provide a great experience on Chrome OS devices"
+        errorLine1="            android:screenOrientation=&quot;portrait&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="39"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="LockedOrientationActivity"
+        message="Expecting `android:screenOrientation=&quot;unspecified&quot;` or `&quot;fullSensor&quot;` for this activity so the user can use the application in any orientation and provide a great experience on Chrome OS devices"
+        errorLine1="            android:screenOrientation=&quot;portrait&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="44"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraText"
+        message="Unexpected text found in manifest file: &quot;>&quot;"
+        errorLine1="        android:theme=&quot;@android:style/Theme.NoTitleBar&quot;>                            &lt;!-- 3.0+ only! -->>"
+        errorLine2="                                                                                                       ~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="21"
+            column="104"/>
+    </issue>
+
+    <issue
+        id="DiscouragedApi"
+        message="Should not restrict activity to fixed orientation. This may not be suitable for different form factors, causing the app to be letterboxed."
+        errorLine1="            android:screenOrientation=&quot;portrait&quot;>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="29"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="DiscouragedApi"
+        message="Should not restrict activity to fixed orientation. This may not be suitable for different form factors, causing the app to be letterboxed."
+        errorLine1="            android:screenOrientation=&quot;portrait&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="39"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="DiscouragedApi"
+        message="Should not restrict activity to fixed orientation. This may not be suitable for different form factors, causing the app to be letterboxed."
+        errorLine1="            android:screenOrientation=&quot;portrait&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="44"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExpiredTargetSdkVersion"
+        message="Google Play requires that apps target API level 33 or higher."
+        errorLine1="        targetSdkVersion(16)"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="16"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        message="Do not place Android context classes in static fields; this is a memory leak"
+        errorLine1=" public static Context app;"
+        errorLine2="        ~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/StackAttackBase.java"
+            line="29"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        message="Do not place Android context classes in static fields; this is a memory leak"
+        errorLine1=" public static Context app;"
+        errorLine2="        ~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/StackAttackBase.java"
+            line="29"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UseSparseArrays"
+        message="Use `new SparseIntArray(...)` instead for better performance"
+        errorLine1=" private SparseArray&lt;Integer> mStatDiverValues = new SparseArray&lt;Integer>();"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/ScoreBanner.java"
+            line="589"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="UseSparseArrays"
+        message="Use `new SparseIntArray(...)` instead for better performance"
+        errorLine1=" private SparseArray&lt;Integer> mStatDiverValues = new SparseArray&lt;Integer>();"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/ScoreBanner.java"
+            line="589"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="UseSparseArrays"
+        message="Use `new SparseIntArray(...)` instead for better performance"
+        errorLine1=" private SparseArray&lt;Integer> mStatStarDiverValues = new SparseArray&lt;Integer>();"
+        errorLine2="                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/ScoreBanner.java"
+            line="591"
+            column="54"/>
+    </issue>
+
+    <issue
+        id="UseSparseArrays"
+        message="Use `new SparseIntArray(...)` instead for better performance"
+        errorLine1=" private SparseArray&lt;Integer> mStatStarDiverValues = new SparseArray&lt;Integer>();"
+        errorLine2="                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/ScoreBanner.java"
+            line="591"
+            column="54"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.cycle128` appears to be unused">
+        <location
+            file="src/main/res/drawable/cycle128.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.menuarrowleft_w39h58` appears to be unused">
+        <location
+            file="src/main/res/drawable/menuarrowleft_w39h58.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.menuarrowright_w39h58` appears to be unused">
+        <location
+            file="src/main/res/drawable/menuarrowright_w39h58.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.app_name_free` appears to be unused"
+        errorLine1="    &lt;string name=&quot;app_name_free&quot;>Stack Attack! (Lite)&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/beer128.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/beer128.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/bomb128color.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/bomb128color.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/bomb128random.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/bomb128random.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/bomb128row.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/bomb128row.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/cycle128.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/cycle128.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/dotarrowleft_w700h74.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/dotarrowleft_w700h74.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/downarrow_w100h161.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/downarrow_w100h161.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/fingercircle_w128h128.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/fingercircle_w128h128.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/fingercirclesideways_w249h128.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/fingercirclesideways_w249h128.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/fingercircleup_w128h191.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/fingercircleup_w128h191.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/icon.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/icon.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/menuarrowleft_w39h58.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/menuarrowleft_w39h58.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/menuarrowright_w39h58.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/menuarrowright_w39h58.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/menubase_w940h1843.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/menubase_w940h1843.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/movehints_w579h644.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/movehints_w579h644.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/shuffle128border.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/shuffle128border.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/star0_w107h105.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/star0_w107h105.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/star1_w107h105.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/star1_w107h105.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/star2_w107h105.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/star2_w107h105.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/star3_w107h105.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/star3_w107h105.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/starempty_w195h187.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/starempty_w195h187.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/starfilled_w195h187.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/starfilled_w195h187.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/stripe12to36.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/stripe12to36.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/uparrow_w124h145.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/uparrow_w124h145.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/white.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/white.png"/>
+    </issue>
+
+    <issue
+        id="ClickableViewAccessibility"
+        message="Custom view `World` overrides `onTouchEvent` but not `performClick`"
+        errorLine1="    public boolean onTouchEvent(MotionEvent event) "
+        errorLine2="                   ~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/World.java"
+            line="676"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="ClickableViewAccessibility"
+        message="Custom view `World` overrides `onTouchEvent` but not `performClick`"
+        errorLine1="    public boolean onTouchEvent(MotionEvent event) "
+        errorLine2="                   ~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/com/wagoodman/stackattack/World.java"
+            line="676"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="&lt;ImageView"
+        errorLine2=" ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/loading.xml"
+            line="8"
+            column="2"/>
+    </issue>
+
+</issues>
