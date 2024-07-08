@@ -11,18 +11,17 @@ android {
     }
     namespace = "com.wagoodman.stackattack"
     defaultConfig{
-        compileSdk(16)
+        compileSdk(21)
         minSdkVersion(9)
-        targetSdkVersion(16)
+        targetSdkVersion(21)
     }
     sourceSets {
         main {
             //manifest.srcFile 'AndroidManifest.xml'
             java.srcDirs = ['src']
-            resources.srcDirs = ['src']
             aidl.srcDirs = ['src']
             renderscript.srcDirs = ['src']
-            res.srcDirs = ['res']
+
             assets.srcDirs = ['assets']
         }
 
