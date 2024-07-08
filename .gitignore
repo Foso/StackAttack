@@ -58,3 +58,6 @@ local.properties
  
 # PDT-specific
 .buildpath
+/StackAttackLibrary/build/
+.gradle/
+.idea/

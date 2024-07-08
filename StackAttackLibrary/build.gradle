@@ -1,24 +1,23 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.5.+'
-    }
+plugins{
+    id("com.android.application")
 }
-apply plugin: 'android-library'
-
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
+    implementation fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
     compileSdkVersion 16
-    buildToolsVersion "16.0.2"
-
+    namespace = "com.wagoodman.stackattack"
+    defaultConfig{
+        minSdkVersion(9)
+        targetSdkVersion(16)
+    }
     sourceSets {
         main {
-            manifest.srcFile 'AndroidManifest.xml'
+            //manifest.srcFile 'AndroidManifest.xml'
             java.srcDirs = ['src']
             resources.srcDirs = ['src']
             aidl.srcDirs = ['src']
@@ -28,7 +27,7 @@ android {
         }
 
         // Move the tests to tests/java, tests/res, etc...
-        instrumentTest.setRoot('tests')
+        androidTest.setRoot('tests')
 
         // Move the build types to build-types/<type>
         // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
