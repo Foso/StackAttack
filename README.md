@@ -1,9 +1,9 @@
 StackAttack
 ===========
 
-Google Play Store: https://play.google.com/store/apps/details?id=com.wagoodman.stackattack.lite
+This is a fork of https://github.com/wagoodman/StackAttack
+I modified the project so that it can be build with latest Gradle and Android version (Android Studio Koala)
 
-An android game loosely based on CrackAttack! This is my first experience with
-Java, OpenGL, and Android development. In hindsight, this is probably a good 
-example of how *not* to write an android app... but was a great learning 
-experience.
+<p align="center">
+  <img src ="https://raw.githubusercontent.com/Foso/StackAttack/main/docs/Screenshot.png" height="400"  />
+</p>
