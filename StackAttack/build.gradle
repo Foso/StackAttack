@@ -11,9 +11,9 @@ android {
     }
     namespace = "com.wagoodman.stackattack"
     defaultConfig{
-        compileSdk(21)
+        compileSdk(34)
         minSdkVersion(9)
-        targetSdkVersion(21)
+        targetSdkVersion(16)
     }
     sourceSets {
         main {

@@ -1,7 +1,5 @@
 package com.wagoodman.stackattack;
 
-import android.util.FloatMath;
-
 
 /**
  * This class applies F(t) given the correct parameters. F(t) can be described as such:
@@ -288,7 +286,7 @@ public enum MotionEquation
 							(((((2*Math.exp((1/(duration/8.0))*(t - (duration/2.0)))) / (2 + (Math.exp((1/(duration/8.0))*(t - (duration/2.0)))-1))))*(0.5))*1.035 - 0.018) * 
 						
 						// Delta
-						(((1.0/(float)(FloatMath.sqrt(PI)))*Math.exp(-Math.pow( 0.75*7.0 - (7.0/(float)duration*t), 2)))*0.5 + 1) *
+						(((1.0/(float)(Math.sqrt(PI)))*Math.exp(-Math.pow( 0.75*7.0 - (7.0/(float)duration*t), 2)))*0.5 + 1) *
 						
 						// Min-Max
 						(endPoint - startPoint)
@@ -327,7 +325,7 @@ public enum MotionEquation
 						(0.5*(Math.sin( ((2.0*PI)/(2.0*duration))*(t - (duration/2.0))) + 1 )) *
 						
 						// Delta
-						(((1.0/(float)(FloatMath.sqrt(PI)))*Math.exp(-Math.pow( 0.75*7.0 - (7.0/(float)duration*t), 2)))*0.5 + 1) *
+						(((1.0/(float)(Math.sqrt(PI)))*Math.exp(-Math.pow( 0.75*7.0 - (7.0/(float)duration*t), 2)))*0.5 + 1) *
 						
 						// Min-Max
 						(endPoint - startPoint)
@@ -369,13 +367,13 @@ public enum MotionEquation
 			if (transform == TransformType.TRANSLATE)
 				return 
 						// Slope Delta
-						(((1.0/(float)(FloatMath.sqrt(PI)))*Math.exp(-Math.pow( 0.2*2.0 - (2.0/(float)duration*t), 2)))*2 + 1) *
+						(((1.0/(float)(Math.sqrt(PI)))*Math.exp(-Math.pow( 0.2*2.0 - (2.0/(float)duration*t), 2)))*2 + 1) *
 							
 						// SIN
 						(0.5*(Math.sin( ((2.0*PI)/(2.0*duration))*(t - (duration/2.0))) + 1 )) *
 						
 						// End Delta
-						(((1.0/(float)(FloatMath.sqrt(PI)))*Math.exp(-Math.pow( 0.75*7.0 - (7.0/(float)duration*t), 2)))*0.5 + 1) *
+						(((1.0/(float)(Math.sqrt(PI)))*Math.exp(-Math.pow( 0.75*7.0 - (7.0/(float)duration*t), 2)))*0.5 + 1) *
 						
 						// Min-Max
 						(endPoint - startPoint);
@@ -386,13 +384,13 @@ public enum MotionEquation
 					startPoint +
 					(
 						// Slope Delta
-						(((1.0/(float)(FloatMath.sqrt(PI)))*Math.exp(-Math.pow( 0.35*3.0 - (3.0/(float)duration*t), 2)))*0.75 + 1) *
+						(((1.0/(float)(Math.sqrt(PI)))*Math.exp(-Math.pow( 0.35*3.0 - (3.0/(float)duration*t), 2)))*0.75 + 1) *
 							
 						// SIN
 						(0.5*(Math.sin( ((2.0*PI)/(2.0*duration))*(t - (duration/2.0))) + 1 )) *
 						
 						// End Delta
-						(((1.0/(float)(FloatMath.sqrt(PI)))*Math.exp(-Math.pow( 0.75*7.0 - (7.0/(float)duration*t), 2)))*0.5 + 1) *
+						(((1.0/(float)(Math.sqrt(PI)))*Math.exp(-Math.pow( 0.75*7.0 - (7.0/(float)duration*t), 2)))*0.5 + 1) *
 						
 						// Min-Max
 						(endPoint - startPoint)
